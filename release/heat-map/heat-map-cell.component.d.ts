@@ -1,6 +1,6 @@
-import { EventEmitter, SimpleChanges, ElementRef, OnChanges } from '@angular/core';
+import { EventEmitter, SimpleChanges, ElementRef, OnChanges, OnInit } from '@angular/core';
 import { LocationStrategy } from '@angular/common';
-export declare class HeatMapCellComponent implements OnChanges {
+export declare class HeatMapCellComponent implements OnChanges, OnInit {
     private location;
     fill: any;
     x: any;
@@ -8,8 +8,10 @@ export declare class HeatMapCellComponent implements OnChanges {
     width: any;
     height: any;
     data: any;
+    magnitude: any;
     label: any;
     gradient: boolean;
+    showValue: boolean;
     select: EventEmitter<{}>;
     element: HTMLElement;
     transform: string;
@@ -18,7 +20,10 @@ export declare class HeatMapCellComponent implements OnChanges {
     gradientId: string;
     gradientUrl: string;
     gradientStops: any[];
+    textPositionY: number;
+    textPositionX: number;
     constructor(element: ElementRef, location: LocationStrategy);
+    ngOnInit(): void;
     ngOnChanges(changes: SimpleChanges): void;
     getGradientStops(): {
         offset: number;

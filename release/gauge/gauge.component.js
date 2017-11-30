@@ -195,12 +195,14 @@ var GaugeComponent = (function (_super) {
         this.activate.emit({ value: item, entries: this.activeEntries });
     };
     GaugeComponent.prototype.onDeactivate = function (item) {
-        var idx = this.activeEntries.findIndex(function (d) {
-            return d.name === item.name && d.value === item.value;
+        /*const idx = this.activeEntries.findIndex(d => {
+          return d.name === item.name && d.value === item.value;
         });
+    
         this.activeEntries.splice(idx, 1);
-        this.activeEntries = this.activeEntries.slice();
-        this.deactivate.emit({ value: item, entries: this.activeEntries });
+        this.activeEntries = [...this.activeEntries];
+    
+        this.deactivate.emit({ value: item, entries: this.activeEntries });*/
     };
     GaugeComponent.prototype.isActive = function (entry) {
         if (!this.activeEntries)

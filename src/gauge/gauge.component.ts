@@ -317,14 +317,14 @@ export class GaugeComponent extends BaseChartComponent implements AfterViewInit 
   }
 
   onDeactivate(item): void {
-    const idx = this.activeEntries.findIndex(d => {
+    /*const idx = this.activeEntries.findIndex(d => {
       return d.name === item.name && d.value === item.value;
     });
 
     this.activeEntries.splice(idx, 1);
     this.activeEntries = [...this.activeEntries];
 
-    this.deactivate.emit({ value: item, entries: this.activeEntries });
+    this.deactivate.emit({ value: item, entries: this.activeEntries });*/
   }
 
   isActive(entry): boolean {
