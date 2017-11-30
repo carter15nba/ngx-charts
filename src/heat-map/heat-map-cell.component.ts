@@ -6,8 +6,10 @@ import {
   SimpleChanges,
   ElementRef,
   OnChanges,
+  OnInit,
   ChangeDetectionStrategy
 } from '@angular/core';
+import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { select } from 'd3-selection';
 
 import { id } from '../utils/id';
@@ -32,11 +34,20 @@ import { id } from '../utils/id';
         style="cursor: pointer"
         (click)="onClick()"
       />
+	  <svg:text *ngIf="showValue"
+		  text-anchor="middle"
+		  [attr.x]="textPositionX"
+		  [attr.y]="textPositionY"
+		  [attr.width]="width"
+		  [attr.height]="height"
+		  >
+	  {{data}} {{magnitude}}
+	  </svg:text>
     </svg:g>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class HeatMapCellComponent implements OnChanges {
+export class HeatMapCellComponent implements OnChanges, OnInit {
 
   @Input() fill;
   @Input() x;
@@ -44,9 +55,10 @@ export class HeatMapCellComponent implements OnChanges {
   @Input() width;
   @Input() height;
   @Input() data;
+  @Input() magnitude;
   @Input() label;
   @Input() gradient: boolean = false;
-  @Input() animations: boolean = true;
+  @Input() showValue: boolean = false;
 
   @Output() select = new EventEmitter();
 
@@ -57,22 +69,38 @@ export class HeatMapCellComponent implements OnChanges {
   gradientId: string;
   gradientUrl: string;
   gradientStops: any[];
+  textPositionY: number;
+  textPositionX: number;
 
-  constructor(element: ElementRef) {
+  constructor(element: ElementRef, private location: LocationStrategy) {
     this.element = element.nativeElement;
   }
 
+  ngOnInit(): void {
+	  if (this.showValue) {
+		  this.textPositionY = this.height/2;
+		  this.textPositionX = this.width/2;
+	  }
+  }
+
   ngOnChanges(changes: SimpleChanges): void {
+	  if (this.showValue) {
+		  this.textPositionY = this.height/2;
+		  this.textPositionX = this.width/2;
+	  }
+
     this.transform = `translate(${this.x} , ${this.y})`;
+
+    const pageUrl = this.location instanceof PathLocationStrategy
+      ? this.location.path()
+      : '';
 
     this.startOpacity = 0.3;
     this.gradientId = 'grad' + id().toString();
-    this.gradientUrl = `url(#${this.gradientId})`;
+    this.gradientUrl = `url(${pageUrl}#${this.gradientId})`;
     this.gradientStops = this.getGradientStops();
 
-    if (this.animations) {
-      this.loadAnimation();
-    }
+    this.loadAnimation();
   }
 
   getGradientStops() {
@@ -97,7 +125,7 @@ export class HeatMapCellComponent implements OnChanges {
 
   animateToCurrentForm(): void {
     const node = select(this.element).select('.cell');
-    
+
     node.transition().duration(750)
       .attr('opacity', 1);
   }
