@@ -13672,7 +13672,14 @@ var GaugeComponent = (function (_super) {
             .domain(this.valueDomain);
     };
     GaugeComponent.prototype.getDisplayValue = function () {
-        var value = this.results.map(function (d) { return d.value; }).reduce(function (a, b) { return a + b; }, 0);
+        var acc = this.results.map(function (d) { return d.value; }).reduce(function (a, b) { return a + b; }, 0);
+        var value = 0;
+        if (this.results.length == 0) {
+            value = 0;
+        }
+        else {
+            value = acc / this.results.length;
+        }
         if (this.textValue && 0 !== this.textValue.length) {
             return this.textValue.toLocaleString();
         }
