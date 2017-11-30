@@ -30,8 +30,8 @@ export class InjectionService {
    * @memberOf InjectionService
    */
   getRootViewContainer(): ComponentRef<any> {
-    const rootComponents = this.applicationRef.components;
-
+    const rootComponents = this.applicationRef['_rootComponents'];
+    
     // fix cannot read length of undefined
     if (rootComponents) {
       if (rootComponents.length) return rootComponents[0];

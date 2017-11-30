@@ -1,5 +1,5 @@
 /**
- * ngx-charts v"7.0.1" (https://github.com/swimlane/ngx-charts)
+ * ngx-charts v"6.1.0" (https://github.com/swimlane/ngx-charts)
  * Copyright 2016
  * Licensed under MIT
  */
@@ -8702,7 +8702,7 @@ var AdvancedLegendComponent = /** @class */ (function () {
         return this.data.map(function (d, index) {
             var label = Object(__WEBPACK_IMPORTED_MODULE_2__label_helper__["a" /* formatLabel */])(d.name);
             var value = d.value;
-            var percentage = (_this.total > 0) ? value / _this.total * 100 : 0;
+            var percentage = value / _this.total * 100;
             var color = _this.colors.getColor(label);
             return {
                 value: value,
@@ -9970,7 +9970,7 @@ var InjectionService = /** @class */ (function () {
      * @memberOf InjectionService
      */
     InjectionService.prototype.getRootViewContainer = function () {
-        var rootComponents = this.applicationRef.components;
+        var rootComponents = this.applicationRef['_rootComponents'];
         // fix cannot read length of undefined
         if (rootComponents) {
             if (rootComponents.length)
@@ -11856,7 +11856,7 @@ var GaugeComponent = /** @class */ (function (_super) {
         });
         this.activeEntries.splice(idx, 1);
         this.activeEntries = this.activeEntries.slice();
-        this.deactivate.emit({ value: item, entries: this.activeEntries });
+        this.deactivate.emit({ value: event, entries: this.activeEntries });
     };
     GaugeComponent.prototype.isActive = function (entry) {
         if (!this.activeEntries)
@@ -13886,6 +13886,7 @@ var LineComponent = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NgxChartsModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__polyfills__ = __webpack_require__("./src/polyfills.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__polyfills___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__polyfills__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("@angular/core");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__angular_core__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__common_chart_common_module__ = __webpack_require__("./src/common/chart-common.module.ts");
@@ -14697,7 +14698,7 @@ var AdvancedPieChartComponent = /** @class */ (function (_super) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pie_grid_component__ = __webpack_require__("./src/pie-chart/pie-grid.component.ts");
 /* unused harmony namespace reexport */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pie_series_component__ = __webpack_require__("./src/pie-chart/pie-series.component.ts");
-/* unused harmony namespace reexport */
+/* inactive harmony reexport namespace */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pie_label_component__ = __webpack_require__("./src/pie-chart/pie-label.component.ts");
 /* unused harmony namespace reexport */
 /* unused harmony namespace reexport */
@@ -16602,19 +16603,13 @@ var PolarSeriesComponent = /** @class */ (function () {
 /***/ }),
 
 /***/ "./src/polyfills.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-/* unused harmony export ngxChartsPolyfills */
-// The export is needed here to generate a valid polyfills.metadata.json file
-function ngxChartsPolyfills() {
-    // IE11 fix
-    // Ref: https://github.com/swimlane/ngx-charts/issues/386
-    if (typeof (SVGElement) !== 'undefined' && typeof SVGElement.prototype.contains === 'undefined') {
-        SVGElement.prototype.contains = HTMLDivElement.prototype.contains;
-    }
+// IE11 fix
+// Ref: https://github.com/swimlane/ngx-charts/issues/386
+if (typeof SVGElement.prototype.contains === 'undefined') {
+    SVGElement.prototype.contains = HTMLDivElement.prototype.contains;
 }
-ngxChartsPolyfills();
 
 
 /***/ }),

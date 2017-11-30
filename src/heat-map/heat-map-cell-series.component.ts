@@ -23,8 +23,6 @@ import { formatLabel } from '../common/label.helper';
       [height]="c.height"
       [fill]="c.fill"
       [data]="c.data"
-	  [showValue]="showValue"
-	  [magnitude]="magnitude"
       (select)="onClick($event, c.label, c.series)"
       [gradient]="gradient"
       [animations]="animations"
@@ -45,14 +43,12 @@ export class HeatCellSeriesComponent implements OnChanges, OnInit {
   @Input() colors;
   @Input() xScale;
   @Input() yScale;
-  @Input() showValue: boolean = false;
-  @Input() magnitude: string = "ºC";
   @Input() gradient: boolean;
   @Input() tooltipDisabled: boolean = false;
   @Input() tooltipText: any;
   @Input() tooltipTemplate: TemplateRef<any>;
   @Input() animations: boolean = true;
-
+  
   @Output() select = new EventEmitter();
 
   cells: any[];

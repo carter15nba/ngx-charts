@@ -8,8 +8,6 @@ import { APP_BASE_HREF } from '@angular/common';
 
 import { PieChartModule } from './pie-chart.module';
 
-jasmine.DEFAULT_TIMEOUT_INTERVAL = 30000;
-
 @Component({
   selector: 'test-component',
   template: ''
@@ -21,7 +19,7 @@ class TestComponent {
   };
 }
 
-xdescribe('<ngx-charts-pie>', () => {
+describe('<ngx-charts-pie>', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({

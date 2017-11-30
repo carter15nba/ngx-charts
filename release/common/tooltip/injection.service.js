@@ -1,12 +1,3 @@
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
 import { ApplicationRef, ComponentFactoryResolver, Injectable, Injector } from '@angular/core';
 /**
  * Injection service is a helper to append components
@@ -30,7 +21,7 @@ var InjectionService = /** @class */ (function () {
      * @memberOf InjectionService
      */
     InjectionService.prototype.getRootViewContainer = function () {
-        var rootComponents = this.applicationRef.components;
+        var rootComponents = this.applicationRef['_rootComponents'];
         // fix cannot read length of undefined
         if (rootComponents) {
             if (rootComponents.length)
@@ -132,12 +123,15 @@ var InjectionService = /** @class */ (function () {
         renderer.projectNodes(location, [componentRootNode]);
         return componentRef;
     };
-    InjectionService = __decorate([
-        Injectable(),
-        __metadata("design:paramtypes", [ApplicationRef,
-            ComponentFactoryResolver,
-            Injector])
-    ], InjectionService);
+    InjectionService.decorators = [
+        { type: Injectable },
+    ];
+    /** @nocollapse */
+    InjectionService.ctorParameters = function () { return [
+        { type: ApplicationRef, },
+        { type: ComponentFactoryResolver, },
+        { type: Injector, },
+    ]; };
     return InjectionService;
 }());
 export { InjectionService };
