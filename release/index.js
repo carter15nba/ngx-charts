@@ -8971,7 +8971,7 @@ YAxisComponent = __decorate([
         } else {
             module.exports = result.toString();
         }
-    
+
 
 /***/ }),
 
@@ -10544,7 +10544,7 @@ GridPanelComponent = __decorate([
         } else {
             module.exports = result.toString();
         }
-    
+
 
 /***/ }),
 
@@ -10780,7 +10780,7 @@ LegendEntryComponent = __decorate([
         } else {
             module.exports = result.toString();
         }
-    
+
 
 /***/ }),
 
@@ -10922,7 +10922,7 @@ LegendComponent = __decorate([
         } else {
             module.exports = result.toString();
         }
-    
+
 
 /***/ }),
 
@@ -11241,7 +11241,7 @@ function tickFormat(fieldType, groupByType) {
         } else {
             module.exports = result.toString();
         }
-    
+
 
 /***/ }),
 
@@ -12327,7 +12327,7 @@ var StyleTypes;
         } else {
             module.exports = result.toString();
         }
-    
+
 
 /***/ }),
 
@@ -12961,7 +12961,7 @@ function calculateViewDimensions(_a) {
         } else {
             module.exports = result.toString();
         }
-    
+
 
 /***/ }),
 
@@ -13504,7 +13504,7 @@ GaugeAxisComponent = __decorate([
         } else {
             module.exports = result.toString();
         }
-    
+
 
 /***/ }),
 
@@ -13731,7 +13731,7 @@ var GaugeComponent = (function (_super) {
         });
         this.activeEntries.splice(idx, 1);
         this.activeEntries = this.activeEntries.slice();
-        this.deactivate.emit({ value: event, entries: this.activeEntries });
+        this.deactivate.emit({ value: item, entries: this.activeEntries });
     };
     GaugeComponent.prototype.isActive = function (entry) {
         if (!this.activeEntries)
@@ -13933,7 +13933,7 @@ GaugeModule = __decorate([
         } else {
             module.exports = result.toString();
         }
-    
+
 
 /***/ }),
 
@@ -15929,7 +15929,7 @@ CardSeriesComponent = __decorate([
         } else {
             module.exports = result.toString();
         }
-    
+
 
 /***/ }),
 
@@ -16340,7 +16340,7 @@ NumberCardModule = __decorate([
         } else {
             module.exports = result.toString();
         }
-    
+
 
 /***/ }),
 
@@ -16727,7 +16727,7 @@ PieArcComponent = __decorate([
         } else {
             module.exports = result.toString();
         }
-    
+
 
 /***/ }),
 
@@ -17126,7 +17126,7 @@ PieGridSeriesComponent = __decorate([
         } else {
             module.exports = result.toString();
         }
-    
+
 
 /***/ }),
 
@@ -17647,7 +17647,7 @@ PieSeriesComponent = __decorate([
         } else {
             module.exports = result.toString();
         }
-    
+
 
 /***/ }),
 
@@ -18687,7 +18687,7 @@ TreeMapCellComponent = __decorate([
         } else {
             module.exports = result.toString();
         }
-    
+
 
 /***/ }),
 
