@@ -14,7 +14,7 @@ var __assign = (this && this.__assign) || Object.assign || function(t) {
 import { Component, Input, Output, EventEmitter, ViewEncapsulation, ChangeDetectionStrategy, ContentChild } from '@angular/core';
 import { trigger, style, animate, transition } from '@angular/animations';
 import { scaleLinear, scaleTime, scalePoint } from 'd3-scale';
-import { curveCardinalClosed } from 'd3-shape';
+import { curveLinearClosed } from 'd3-shape';
 import { calculateViewDimensions } from '../common/view-dimensions.helper';
 import { ColorHelper } from '../common/color.helper';
 import { BaseChartComponent } from '../common/base-chart.component';
@@ -26,7 +26,7 @@ var PolarChartComponent = (function (_super) {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.legendTitle = 'Legend';
         _this.showGridLines = true;
-        _this.curve = curveCardinalClosed;
+        _this.curve = curveLinearClosed;
         _this.activeEntries = [];
         _this.rangeFillOpacity = 0.15;
         _this.roundDomains = false;

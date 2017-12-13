@@ -17765,7 +17765,7 @@ var PolarChartComponent = (function (_super) {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.legendTitle = 'Legend';
         _this.showGridLines = true;
-        _this.curve = __WEBPACK_IMPORTED_MODULE_3_d3_shape__["curveCardinalClosed"];
+        _this.curve = __WEBPACK_IMPORTED_MODULE_3_d3_shape__["curveLinearClosed"];
         _this.activeEntries = [];
         _this.rangeFillOpacity = 0.15;
         _this.roundDomains = false;
