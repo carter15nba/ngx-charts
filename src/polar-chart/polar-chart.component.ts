@@ -137,7 +137,7 @@ export class PolarChartComponent extends BaseChartComponent {
   @Input() yAxisLabel: string;
   @Input() autoScale: boolean;
   @Input() showGridLines: boolean = true;
-  @Input() curve: any = curveCardinalClosed;
+  @Input() curve: any = curveLinearClosed;
   @Input() activeEntries: any[] = [];
   @Input() schemeType: string;
   @Input() rangeFillOpacity: number = 0.15;
