@@ -149,6 +149,7 @@ var GaugeComponent = (function (_super) {
         else {
             value = acc / this.results.length;
         }
+        value = value.toFixed(2)/1;
         if (this.textValue && 0 !== this.textValue.length) {
             return this.textValue.toLocaleString();
         }
@@ -205,10 +206,10 @@ var GaugeComponent = (function (_super) {
         /*const idx = this.activeEntries.findIndex(d => {
           return d.name === item.name && d.value === item.value;
         });
-    
+
         this.activeEntries.splice(idx, 1);
         this.activeEntries = [...this.activeEntries];
-    
+
         this.deactivate.emit({ value: item, entries: this.activeEntries });*/
     };
     GaugeComponent.prototype.isActive = function (entry) {
