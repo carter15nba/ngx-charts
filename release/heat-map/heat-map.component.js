@@ -52,6 +52,8 @@ var HeatMapComponent = (function (_super) {
             }
             this.valueDomain = [this.min, this.max];
         }
+        console.log("DOMAIN!!!!");
+        console.log(this.valueDomain);
         this.xScale = this.getXScale();
         this.yScale = this.getYScale();
         this.setColors();
